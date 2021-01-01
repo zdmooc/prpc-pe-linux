@@ -5,11 +5,13 @@
 while test $# -gt 0; do
         case "$1" in
                 -h|--help)
+                        echo "********************************************************************************"
+                       echo  "dollar " , $1
                         echo "prpc_pe.sh - Install/run PRPC PE"
                         echo " "
                         echo "options:"
                         echo "-i, --install-pega [Install Pega Personal Edition. Specify -m]"
-                        echo "-m, --installation-media=/path/to/115148_PE_721.zip [Path of the zip file]"
+                        echo "-m, --installation-media=/home/oem/tmp/116897_PE8.5.1.zip [Path of the zip file]"
                         echo "-o, --start-server [Start Pega Server]"
                         echo "-x, --stop-server [Shutdown Pega Server]"
                         exit 0

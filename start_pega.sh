@@ -14,7 +14,8 @@ source /opt/pega/set_env.sh
 
 rm -rf /var/run/postgresql
 mkdir -p /var/run/postgresql
-chown pega /var/run/postgresql
+#chown pega /var/run/postgresql
+chown postgres /var/run/postgresql
 #su -c "$BIN_LOC/pg_ctl -D  $DATA_LOC -l $LOG_LOC stop" - pega
 su -c "$BIN_LOC/pg_ctl -D  $DATA_LOC -l $LOG_LOC/postgresql.log start" - "$DB_USER"
 

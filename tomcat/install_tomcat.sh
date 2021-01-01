@@ -17,15 +17,15 @@ sudo useradd -s /bin/false -g tomcat -d "$DEST_LOC" tomcat
 #download tomcat files to /tmp
 echo 'Download & Install tomcat.. '
 #cd /tmp
-if [[ -f /tmp/apache-tomcat-9.0.17.tar.gz ]]; then
+if [[ -f /tmp/apache-tomcat-9.0.41.tar.gz ]]; then
   echo "Skipping download of apache-tomcat-9.0.17.tar.gz"
 else
-  wget -O /tmp/apache-tomcat-9.0.17.tar.gz http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17.tar.gz
+  wget -O /tmp/apache-tomcat-9.0.41.tar.gz http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz
 fi
 # extract the contents
 rm -rf "$DEST_LOC"
 mkdir "$DEST_LOC"
-sudo tar xzvf /tmp/apache-tomcat-9.0.17.tar.gz -C /opt/tomcat --strip-components=1
+sudo tar xzvf /tmp/apache-tomcat-9.0.41.tar.gz -C /opt/tomcat --strip-components=1
 
 #install
 echo 'Setup usergroup and user'
@@ -80,7 +80,7 @@ if [[ -d $SRC_LOC ]];then
   echo "copying files from $SRC_LOC to $DEST_LOC/webapps/"
   cp "$SRC_LOC/webapps/prweb.war" "$DEST_LOC/webapps/"
   cp "$SRC_LOC/webapps/prhelp.war" "$DEST_LOC/webapps/"
-  cp "$SRC_LOC/webapps/prsysmgmt.war" "$DEST_LOC/webapps/"
+  cp "$SRC_LOC/webapps/prsysmgmt.war" "$DEST_LOC/webapps/"java-1.8.0-openjdk-amd64/
   yes | cp -f "$SRC_LOC/conf/context.xml" "$DEST_LOC/conf/"
   sed -i 's/@PG_PORT/5432/g' "$DEST_LOC/conf/context.xml"
 else
@@ -98,7 +98,7 @@ else
 fi
 
 #set env variables
-echo "JAVA_HOME=\"/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre\"" >> /etc/environment
+echo "JAVA_HOME=\"/usr/lib/jvm/java-11-openjdk-amd64\"" >> /etc/environment
 echo "CATALINA_PID=\"/opt/tomcat/temp/tomcat.pid\"" >> /etc/environment
 echo "CATALINA_HOME=\"/opt/tomcat\"" >> /etc/environment
 echo "CATALINA_BASE=\"/opt/tomcat\"" >> /etc/environment
